@@ -45,30 +45,30 @@ export default function Navbar() {
           <NavigationMenuList className="flex items-center gap-6 text-sm">
             <NavigationMenuItem>
               <Link href="/">
-                <NavigationMenuLink className="text-secondary transition hover:text-teal-600 flex items-center gap-1">
+                <span className="text-secondary transition hover:text-teal-600 flex items-center gap-1">
                   Home
-                </NavigationMenuLink>
+                </span>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/shop">
-                <NavigationMenuLink className="text-secondary transition hover:text-teal-600 flex items-center gap-1">
+                <span className="text-secondary transition hover:text-teal-600 flex items-center gap-1">
                   Shop
-                </NavigationMenuLink>
+                </span>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/about">
-                <NavigationMenuLink className="text-secondary transition hover:text-teal-600 flex items-center gap-1">
+                <span className="text-secondary transition hover:text-teal-600 flex items-center gap-1">
                   About Us
-                </NavigationMenuLink>
+                </span>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/blog">
-                <NavigationMenuLink className="text-secondary transition hover:text-teal-600 flex items-center gap-1">
+                <span className="text-secondary transition hover:text-teal-600 flex items-center gap-1">
                   Blog
-                </NavigationMenuLink>
+                </span>
               </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
