@@ -159,3 +159,12 @@ p, span, div, a {
   }
 }
 
+
+
+/*Home > discount */
+.bg-image{
+   background: url("/assets/img/banner-ne.png");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}

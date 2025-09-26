@@ -32,7 +32,7 @@ const testimonials = [
 
     //
   return (
-    <section className="bg-white max-w-6xl m-auto " >
+    <section className="bg-white max-w-6xl m-auto pt-36" >
         {/* title */}
         <div className="flex justify-center items-center flex-col space-y-4 mb-6">
           <span className="!font-rubik font-medium text-xl text-[#749B3F] bg-[#749B3F1A] rounded-sm py-1 px-3">Testimonial</span>

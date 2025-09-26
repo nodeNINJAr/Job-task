@@ -82,7 +82,7 @@ const handleDotClick = (index: number) => {
                     </Avatar>
                   </div>
 
-                  {/* Right: Quote Bubble */}
+                  {/* Right: Quote */}
                   <div className="flex-1 bg-[#F4F6F6] rounded-2xl p-6">
                     {/* Quote */}
                     <blockquote className="text-xl font-questrial  text-secondary mb-4 leading-8">
