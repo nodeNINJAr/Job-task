@@ -1,3 +1,5 @@
+"use-client"
+
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight} from "lucide-react"
 import Image from "next/image"
@@ -35,13 +37,13 @@ const blogData = [
     //
   return (
         <section className="bg-white max-w-6xl m-auto py-36" >
-          {/* blog section */}
             {/* title */}
            <div className="flex justify-center items-center flex-col space-y-4">
               <span className="!font-rubik font-medium text-xl text-[#749B3F] bg-[#749B3F1A] rounded-sm py-1 px-3">Our Blog</span>
                 <h1 className="font-medium text-5xl capitalize text-primary">Fresh Harvest Blog</h1>
               <p className="text-secondary text-sm leading-6 text-center">Welcome to the Fresh Harvest Blog, your go-to resource for all things <br/> related to fresh produce, healthy eating, and culinary inspiration.</p>
            </div>
+
            {/* blog card */}
            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-5">
               {
@@ -55,13 +57,12 @@ const blogData = [
                       <CardTitle className="text-primary font-semibold leading-6">{blog.title}</CardTitle> 
                     </CardContent >
                     <CardFooter className="!p-0 font-semibold text-[#FF6A1A] ">
-                        <Link href={"#"} className="flex justify-center items-center gap-3"> Read More <ArrowRight /></Link>
+                      <Link href={"#"} className="flex justify-center items-center gap-3"> Read More <ArrowRight /></Link>
                     </CardFooter>
                   </Card>
                 ))
               }
            </div>
-
     </section>
   )
 }
