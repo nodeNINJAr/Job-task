@@ -2,10 +2,11 @@ import Blog from "@/components/home/Blog";
 import Discount from "@/components/home/Discount";
 import Hero from "@/components/home/Hero";
 import Testimonials from "@/components/home/Testimonials";
-import Navbar from "@/components/Navbar";
-// import { usePathname } from "next/navigation";
+import Categories from "@/components/home/Categories";
 
 
+
+// 
 export default function Home() {
 
   // 
@@ -13,6 +14,8 @@ export default function Home() {
       <>
       {/* hero */}
        <Hero/>
+       {/* categories sections */}
+       <Categories/>
       {/* discount section */}
         <Discount/>
        {/* testimonials */}

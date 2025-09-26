@@ -1,3 +1,4 @@
+import Heading from "../ui/heading";
 import { TestimonialCarousel } from "../ui/testimonial-carousel";
 
 
@@ -33,13 +34,8 @@ const testimonials = [
     //
   return (
     <section className="bg-white max-w-6xl m-auto pt-36" >
-        {/* title */}
-        <div className="flex justify-center items-center flex-col space-y-4 mb-6">
-          <span className="!font-rubik font-medium text-xl text-[#749B3F] bg-[#749B3F1A] rounded-sm py-1 px-3">Testimonial</span>
-             <h1 className="font-medium text-5xl capitalize text-primary">What Our Customers Say</h1>
-           <p className="text-secondary text-sm leading-6 text-center"> Don't just take our word for it—here's what some of our customers have to <br/> say about their experience with Fresh Harvest:</p>
-        </div>
-    
+        {/*  */}
+        <Heading subtitle={"Testimonial"} title={"What Our Customers Say"} desc={"Don't just take our word for it—here's what some of our customers have to say about their experience with Fresh Harvest:"}/>
         {/* blog card */}
         <div className="">
           <TestimonialCarousel testimonials={testimonials} />

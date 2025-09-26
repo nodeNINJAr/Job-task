@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { ArrowRight} from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import Heading from "../ui/heading"
 
 export default function Blog() {
 
@@ -37,13 +38,8 @@ const blogData = [
     //
   return (
         <section className="bg-white max-w-6xl m-auto py-36" >
-            {/* title */}
-           <div className="flex justify-center items-center flex-col space-y-4">
-              <span className="!font-rubik font-medium text-xl text-[#749B3F] bg-[#749B3F1A] rounded-sm py-1 px-3">Our Blog</span>
-                <h1 className="font-medium text-5xl capitalize text-primary">Fresh Harvest Blog</h1>
-              <p className="text-secondary text-sm leading-6 text-center">Welcome to the Fresh Harvest Blog, your go-to resource for all things <br/> related to fresh produce, healthy eating, and culinary inspiration.</p>
-           </div>
-
+            {/*heading */}
+            <Heading subtitle="Our Blog" title="Fresh Harvest Blog" desc="Welcome to the Fresh Harvest Blog, your go-to resource for all things related to fresh produce, healthy eating, and culinary inspiration."/>
            {/* blog card */}
            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-5">
               {
