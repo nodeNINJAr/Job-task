@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Questrial,Rubik } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import NavbarWrapper from "@/components/NavbarWrapper";
 
 
 const questrial = Questrial({
@@ -33,7 +33,7 @@ export default function RootLayout({
         className={`${rubik.variable} antialiased`}
       >
         {/* Navbar */}
-        <Navbar/>
+         <NavbarWrapper/>
         {/* main */}
           <main className="min-h-screen">{children}</main>
         {/* footer */}

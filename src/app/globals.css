@@ -168,3 +168,10 @@ p, span, div, a {
    background-repeat: no-repeat;
    background-size: cover;
 }
+
+.bg-banner{
+   background: url("/assets/img/banner-desk.png");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
