@@ -12,6 +12,27 @@ import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { useDispatch } from 'react-redux';
 import { closeModal, openLogin } from '@/redux/features/modal/modalSlice';
+import {z} from "zod"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRegisterMutation } from '@/redux/features/auth/auth.api';
+import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
+
+
+
+
+const registerSchema = z
+  .object({
+    fullName: z
+      .string()
+      .min(3, {
+        error: "Name is too short",
+      })
+      .max(50),
+    email: z.email(),
+    password: z.string().min(6, { error: "Password is too short" }),
+});
+
 
 
 // 
@@ -19,31 +40,45 @@ export function RegisterModal({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-
 // 
 const dispatch = useDispatch();
+const [register] = useRegisterMutation();
+const router = useRouter();
 
 
   //
-  const form = useForm({
-    //! For development only
+  const form = useForm<z.infer<typeof registerSchema>>({
+    resolver: zodResolver(registerSchema),
     defaultValues: {
-      email: "mehedihasan@gmail.com",
-      username:"",
-      password: "12345678",
-      rememberMe:false,
+      email: "",
+      fullName:"",
+      password: "",
     },
   });
 
 
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+        const userInfo = {
+        fullName: data.fullName,
+        email: data.email,
+        password: data.password,
+    };
+    // 
     try {
+     //  
+      await register(userInfo).unwrap();
+      dispatch(closeModal());
+      toast.success("User created successfully");
+      router.push("/dashboard");
+     
+
     } catch (err) {
       console.error(err);
 
     }
   };
+
 
 
 
@@ -60,7 +95,7 @@ const dispatch = useDispatch();
             {/*  */}
              <FormField
               control={form.control}
-              name="username"
+              name="fullName"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Full Name</FormLabel>
@@ -103,7 +138,7 @@ const dispatch = useDispatch();
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                      <Password/>
+                      <Password {...field}/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>

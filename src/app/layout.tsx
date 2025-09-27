@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import NavbarWrapper from "@/components/NavbarWrapper";
 import { Providers } from "@/providers/Providers";
 import ModalManager from "@/components/ModalManager";
+import { Toaster } from "sonner";
 
 
 const questrial = Questrial({
@@ -40,6 +41,8 @@ export default function RootLayout({
                <ModalManager />
               {/* main */}
                 <main className="min-h-screen">{children}</main>
+                {/* for toast */}
+                <Toaster />
               {/* footer */}
               <Footer/>
         </Providers>

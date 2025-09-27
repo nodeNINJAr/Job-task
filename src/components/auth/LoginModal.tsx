@@ -28,10 +28,9 @@ const dispatch = useDispatch();
 
   //
   const form = useForm({
-    //! For development only
     defaultValues: {
-      email: "mehedihasan@gmail.com",
-      password: "12345678",
+      email: "",
+      password: "",
       rememberMe:false,
     },
   });
@@ -87,7 +86,7 @@ const dispatch = useDispatch();
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                     <Password/>
+                     <Password {...field}/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
