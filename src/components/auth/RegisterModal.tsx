@@ -84,7 +84,7 @@ const router = useRouter();
 
 // 
   return (
-   <div className={cn("flex flex-col gap-6 absolute top-2/3 md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-sm w-11/12  p-4 md:p-6 md:w-[478px] rounded-sm", className)} {...props}>
+   <div className={cn("flex flex-col gap-6 mx-auto  p-4 md:p-6 md:max-w-md rounded-sm  bg-white shadow", className)} {...props}>
       <div className="flex flex-col items-center gap-2 text-center relative">
         <span className='absolute right-0 top-0 w-6 h-6 text-primary' onClick={()=>dispatch(closeModal())}><X/></span>
         <h1 className="text-3xl font-bold font-rubik my-6">Register</h1>

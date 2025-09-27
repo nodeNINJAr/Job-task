@@ -22,7 +22,7 @@ export default function ModalManager() {
       />
 
       {/* modal container */}
-      <div className="relative z-10 w-full max-w-md mx-4 sm:mx-0 max-h-[90vh] overflow-y-scroll p-6 bg-white rounded shadow">
+      <div className="relative z-10 w-full md:max-w-lg sm:mx-0 max-h-[90vh] overflow-y-scroll p-2 ">
         {active === "login" && <LoginModal />}
         {active === "register" && <RegisterModal />}
       </div>
