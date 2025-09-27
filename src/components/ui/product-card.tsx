@@ -10,7 +10,6 @@ import Link from 'next/link'
 
 // 
 export default function ProductCard({item}:{ item: IProduct }) {
-    console.log(item);
     // 
   return (
        <Link href={`/shop/${item.id}`}>

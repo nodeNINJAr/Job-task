@@ -6,7 +6,9 @@ import ProductCard from '../ui/product-card'
 
 export default function About() {
 
-const featureProdcut= { id: "1", name: "Mushroom", price: 2.3, unit: "kg", category: "vegetables", image: "https://i.ibb.co.com/4B3rn91/img-1-2.png" }
+const featureProdcut= { 
+   categoryId: "6751516f9c52879c1fde6558",id:"67545db31cdb919fe028cf3f",
+   productName: "Guava",isDeleted:false, price: 2.3, stock: 500, images: ['https://i.ibb.co.com/J7CXmBQ/Guava.png'] }
 
 
     // 
