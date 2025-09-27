@@ -25,12 +25,12 @@ export default function Footer() {
 
             <div>
                 <h3 className="mb-2 text-[12px] font-medium">Download App:</h3>
-              <div className=" flex gap-5 space-y-2">
-                 <Button variant="outline" className="justify-start bg-primary text-white size-5/12">
+              <div className=" flex justify-center gap-5 space-y-2 mt-6 md:mt-0">
+                 <Button variant="outline" className="justify-start bg-primary text-white size-max md:size-5/12">
                     <Apple className="size-8 mr-2 text-white" />
                     <div className="flex flex-col justify-start items-start gap-0"><p className="text-[12px]">Download on the</p> <h3 className="text-lg -m-1">App Store</h3> </div>
                     </Button>
-                    <Button variant="outline" className="justify-start bg-primary text-white size-5/12">
+                    <Button variant="outline" className="justify-start bg-primary text-white size-max md:size-5/12">
                     <ShoppingCart className="size-8 mr-2 text-white" />
                         <div className="flex flex-col justify-start items-start gap-0"><p className="text-[12px]">Download on the</p> <h3 className="text-lg -m-1">Google Play</h3> </div>
                 </Button>
@@ -88,7 +88,7 @@ export default function Footer() {
       <Separator className="border-[#D9D9D9]" />
 
       {/* Bottom Bar */}
-      <div className="max-w-6xl py-4 flex flex-col md:flex-row justify-between items-center mx-auto px-6">
+      <div className="max-w-6xl py-4 flex flex-col-reverse md:flex-row justify-between items-center mx-auto px-6">
         <p className="text-primary text-[12px] my-6 ">
           © Copyright 2024. All Rights Reserved by Banana Studio
         </p>

@@ -74,7 +74,7 @@ const handleDotClick = (index: number) => {
                 <div className="flex flex-col md:flex-row !items-center md:items-start gap-16 w-full max-w-5xl">
                   {/* Left: Avatar */}
                   <div className="flex-shrink-0">
-                    <Avatar className="h-32 w-32 md:h-96 md:w-2xs rounded-full">
+                    <Avatar className="h-96 w-2xs rounded-full">
                       <AvatarImage src={testimonial.avatar} className="object-cover" />
                       <AvatarFallback className="bg-green-100 text-green-800 text-2xl">
                         {testimonial.name.charAt(0)}

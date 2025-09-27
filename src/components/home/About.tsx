@@ -11,10 +11,10 @@ const featureProdcut= { id: "1", name: "Mushroom", price: 2.3, unit: "kg", categ
 
     // 
   return (
-    <section className='max-w-6xl mx-auto -mt-16 pb-36' >
-        <div className='flex justify-between items-center gap-14'>
+    <section className='max-w-6xl mx-auto -mt-16 pb-10 md:pb-36' >
+        <div className=' md:flex justify-between items-center gap-14'>
         {/* left side */}
-        <div className='w-1/2 mx-auto relative'>
+        <div className='w-10/12 md:w-1/2 mx-auto relative mt-28 md:mt-0'>
             <Image src={"https://i.ibb.co.com/LdFyYJ9h/hero-img-new.png"} alt='hero img' width={500} height={500}/>
              <span className='bg-white px-4 py-3 rounded-sm shadow-sm absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
                 <Link href="/" className="flex items-center text-primary">
@@ -34,9 +34,9 @@ const featureProdcut= { id: "1", name: "Mushroom", price: 2.3, unit: "kg", categ
             </div>
         </div>
         {/* right side */}
-         <div className="w-1/2 flex justify-center items-start flex-col space-y-4 mb-6 mt-28">
-              <span className="!font-rubik font-medium text-xl text-[#749B3F] bg-[#749B3F1A] rounded-sm py-1 px-3">About us</span>
-              <h1 className="font-medium text-5xl capitalize text-primary">About Fresh Harvest</h1> 
+         <div className="w-10/12 md:w-1/2 mx-auto md:flex justify-center items-start flex-col space-y-4 mb-6 mt-28">
+              <span className="!font-rubik font-medium text-xl text-[#749B3F] bg-[#749B3F1A] rounded-sm py-1 px-3 ">About us</span>
+              <h1 className="font-medium text-3xl md:text-5xl capitalize text-primary mt-4">About Fresh Harvest</h1> 
               <p className="text-secondary text-sm leading-6 text-left ">Welcome to Fresh Harvest, your premier destination for high-quality and fresh produce. We are passionate about providing you with the finest fruits, vegetables, and salad ingredients to nourish your body and delight your taste buds. With a commitment to excellence, sustainability, and customer satisfaction, Fresh Harvest is here to revolutionize your grocery shopping experience.</p>
               <Button variant={"outline"} className='text-lg font-rubik font-semibold p-6 px-8 text-[#FF6A1A] border-[#FF6A1A]'><Link href={"/about"}>Read More</Link></Button>
         </div> 

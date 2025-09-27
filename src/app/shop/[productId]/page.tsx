@@ -1,20 +1,18 @@
+import ProductDetails from "@/components/products/ProductDetails";
 
-
-const ProductDetails = async({
+const ProductPage = async({
    params,
    } : {params:Promise<{productId:string}>
   }) => {
 
   const {productId} = await params;
 
- 
-  console.log(await params);
 
    return (
-    <div>
-        <h1 className="text-4xl text-green-400">ProductDetails product id : {productId}</h1>
-    </div>
+      <>
+          <ProductDetails productId={productId}/>
+      </>
   )
 }
 
-export default ProductDetails
+export default ProductPage;

@@ -1,18 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit'
 import modalReducer from "./features/modal/modalSlice"
-import { authApi } from './features/auth/auth.api'
 import { setupListeners } from '@reduxjs/toolkit/query'
+import { baseApi } from './baseApi'
+
 
 
 
 export const store = configureStore({
   reducer: {
-    modal:modalReducer,
-    [authApi.reducerPath]: authApi.reducer,
+    modal: modalReducer,
+    [baseApi.reducerPath]: baseApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware),
-})
+    getDefaultMiddleware()
+      .concat(baseApi.middleware)
+});
 
 setupListeners(store.dispatch)
 

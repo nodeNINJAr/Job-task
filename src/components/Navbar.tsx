@@ -19,17 +19,18 @@ import {
 } from 'lucide-react'; // Lucide icons
 import { useDispatch,} from 'react-redux';
 import { openLogin } from '@/redux/features/modal/modalSlice';
+import { usePathname } from 'next/navigation';
 
 
 
 export default function Navbar() {
   // 
 const disPatch = useDispatch();
-
+  const pathname = usePathname();
 
 // 
   return (
-    <header className="py-4 mb-20 ">
+    <header className="py-4 mb-4 md:mb-20 px-4 md:px-0">
       <div className="max-w-6xl m-auto flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center text-primary">
@@ -40,11 +41,11 @@ const disPatch = useDispatch();
               fill="currentColor"
             />
           </svg>
-          <span className="ml-2 hidden text-xl font-bold sm:inline">Fresh Harvests</span> {/* Hidden on mobile for space */}
+          <span className="ml-2 hidden text-xl md:text-3xl font-bold sm:inline">Fresh Harvests</span> {/* Hidden on mobile for space */}
         </Link>
 
         {/* Desktop Navigation */}
-        <NavigationMenu className="hidden md:flex">
+        <NavigationMenu className="hidden md:flex md:ml-50">
           <NavigationMenuList className="flex items-center gap-6 text-sm">
             <NavigationMenuItem>
               <Link href="/">
@@ -78,9 +79,9 @@ const disPatch = useDispatch();
         </NavigationMenu>
 
         {/* Right Actions: Favorites, Cart, Sign In */}
-        <div className="flex items-center gap-2 md:gap-4">
+        <div className=" items-end md:items-center gap-2 md:gap-4  hidden md:flex justify-end md:ml-40">
           {/* Favorites */}
-          <Button variant="ghost" size="sm" className="relative p-2 text-white hover:text-teal-600" asChild>
+          <Button variant="ghost" size="sm" className={`hidden md:flex  relative p-2 text-white hover:text-teal-600  ${pathname !== "/" && "text-primary"}`} asChild>
             <Link href="/favorites" className='space-x-2 text-sm'>
               <Heart className="h-8 w-8" />
                 Favorites
@@ -90,29 +91,41 @@ const disPatch = useDispatch();
           </Button>
 
           {/* Cart */}
-          <Button variant="ghost" size="sm" className="relative p-2 text-white hover:text-teal-600" asChild>
+          <Button variant="ghost" size="sm" className={`relative p-2 text-white hover:text-teal-600  ${pathname !== "/" && "text-primary"}`} asChild>
             <Link href="/cart" className='space-x-2 text-sm'>
               <ShoppingBag className="h-6 w-6" />
-              <span className="absolute -top-1 right-10 h-[17] w-[17] mx-auto rounded-full bg-red-500 text-xs text-white text-center">2</span>
-               Cart
+              <span className={`absolute -top-1 right-10 h-[17] w-[17] mx-auto rounded-full bg-red-500 text-xs text-white text-center ${pathname !== "/" && "text-primary"}`}>2</span>
+               <span className=''>Cart</span>
             </Link>
           </Button>
 
           {/* Sign In */}
-          <Button onClick={()=>disPatch(openLogin())} variant="outline" size="sm" className="!font-rubik px-6 py-5 text-white hover:text-teal-600 bg-transparent rounded-sm text-sm font-semibold">
+          <Button onClick={()=>disPatch(openLogin())} variant="outline" size="sm" className={`hidden md:flex   !font-rubik px-6 py-5 text-white hover:text-teal-600 bg-transparent rounded-sm text-sm font-semibold ${pathname !== "/" && "text-primary"}`}>
                 Sign In
           </Button>
         </div>
 
         {/* Mobile Menu Trigger */}
-        <Sheet>
+   
+         <div className='md:flex justify-end '>
+                    {/*  */}
+           <Button variant="ghost" size="sm" className={`md:hidden relative p-2 text-white hover:text-teal-600  ${pathname !== "/" && "text-primary"}`} asChild>
+              <Link href="/cart" className='space-x-2 text-sm'>
+              <ShoppingBag className="h-10 w-10 text-primary md:text-white" />
+              <span className={`absolute top-0 right-5 h-[17] w-[17] mx-auto rounded-full bg-red-500 text-xstext-white text-center ${pathname !== "/" && "text-primary"}`}>2</span>
+              <span className='hidden md:flex'>Cart</span>
+            </Link>
+          </Button>
+          {/*  */}
+          <Sheet>
           <SheetTrigger asChild>
             <Button variant="ghost" size="sm" className="md:hidden p-2 text-gray-600">
               <Menu className="h-5 w-5" />
+                  {/* Cart */}
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px] pr-0">
+          <SheetContent side="right" className="w-[300px] sm:w-[400px] pr-0 p-4">
             {/* Mobile Nav Items */}
             <div className="flex flex-col space-y-4 mt-8">
               <Link href="/" className="flex items-center gap-2 text-gray-600 hover:text-teal-600 py-2">
@@ -135,13 +148,14 @@ const disPatch = useDispatch();
                   <ShoppingBag className="h-5 w-5" /> Cart
                 </Link>
                   {/* Sign In */}
-                  <Button onClick={()=>disPatch(openLogin())} variant="outline" size="sm" className="!font-rubik px-6 py-5 text-white hover:text-teal-600 bg-transparent rounded-sm text-sm font-semibold">
+                  <Button onClick={()=>disPatch(openLogin())} variant="outline" size="sm" className="!font-rubik px-6 py-5 text-primary hover:text-teal-600 bg-transparent rounded-sm text-sm font-semibold">
                       <User className="h-5 w-5" />   Sign In
                   </Button>
               </div>
             </div>
           </SheetContent>
         </Sheet>
+        </div>
       </div>
     </header>
   );

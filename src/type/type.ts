@@ -1,9 +1,11 @@
 
 export interface IProduct {
     id:string,
-    name:string,
+    productName:string,
+    description:string,
     price:number,
-    unit?:string,
-    category:string,
-    image:string,
+    stock:number,
+    images:[string],
+    categoryId:string,
+    isDeleted:boolean
 }

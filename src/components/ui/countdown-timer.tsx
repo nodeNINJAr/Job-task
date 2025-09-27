@@ -85,7 +85,7 @@ useEffect(() => {
   ];
 
   return (
-    <div className={cn("flex items-center justify-start gap-4 rounded-lg mt-8", className)}>
+    <div className={cn("flex items-center justify-center md:justify-start gap-4 rounded-lg mt-8", className)}>
       {timeSegments.map((segment, index) => (
         <div
           key={index}

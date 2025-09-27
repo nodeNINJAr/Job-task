@@ -33,7 +33,7 @@ const testimonials = [
 
     //
   return (
-    <section className="bg-white max-w-6xl m-auto pt-36" >
+    <section className="bg-white max-w-6xl m-auto pt-20 md:pt-36" >
         {/*  */}
         <Heading subtitle={"Testimonial"} title={"What Our Customers Say"} desc={"Don't just take our word for it—here's what some of our customers have to say about their experience with Fresh Harvest:"}/>
         {/* blog card */}

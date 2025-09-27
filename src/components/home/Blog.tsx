@@ -37,7 +37,7 @@ const blogData = [
 
     //
   return (
-        <section className="bg-white max-w-6xl m-auto py-36" >
+        <section className="bg-white max-w-6xl m-auto py-10 px-4 md:px-0 md:py-36" >
             {/*heading */}
             <Heading subtitle="Our Blog" title="Fresh Harvest Blog" desc="Welcome to the Fresh Harvest Blog, your go-to resource for all things related to fresh produce, healthy eating, and culinary inspiration."/>
            {/* blog card */}
