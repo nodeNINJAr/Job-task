@@ -8,3 +8,10 @@ export interface IProduct {
     categoryId: string,
     isDeleted: boolean
 }
+
+
+export interface ProductApiResponse {
+  success: boolean;
+  message: string;
+  data: IProduct;
+}

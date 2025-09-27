@@ -1,7 +1,7 @@
 
 
 import { baseApi } from "@/redux/baseApi";
-import { IProduct } from "@/type/type";
+import { ProductApiResponse } from "@/type/type";
 
 export const productsApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -11,7 +11,7 @@ export const productsApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
-    getProductById: builder.query<IProduct, string>({
+    getProductById: builder.query<ProductApiResponse, string>({
       query: (productId) => ({
         url:`/products/${productId}`,
         method: "GET",

@@ -10,6 +10,7 @@ import { useGetSingleCategotyQuery } from '@/redux/features/categoryApi/category
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import ProductCard from '../ui/product-card';
 import Heading from '../ui/heading';
+import { IProduct } from '@/type/type';
 
 
 interface Props {
@@ -26,11 +27,10 @@ export default function ProductDetails({productId}:Props) {
     const {data:sCategory} = useGetSingleCategotyQuery(product?.categoryId);
     const {data:products} = useGetAllProductsQuery(undefined);
 
-    const realtedProducts = products?.data?.filter( product =>product.categoryId === sCategory?.data?.id );
+    const realtedProducts = products?.data?.filter( (product: IProduct) =>product.categoryId === sCategory?.data?.id );
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error fetching product</p>;
-
 
 
 
@@ -41,24 +41,24 @@ export default function ProductDetails({productId}:Props) {
      <section className="grid md:grid-cols-2 gap-10 items-center max-w-6xl m-auto p-4 md:p-0">
       {/* Left: Image with badge */}
       <Card className="relative flex items-center justify-center md:p-10 shadow rounded h-96">
-        {product?.images?.length > 0 ? (
-                  <Image
-                      src={product.images[0]}
-                      alt={product.productName}
-                      width={200}
-                      height={200}
-                      className="h-52 object-contain mx-auto"
-                  />
-                  ) : (
-                  <Image
-                      src="/placeholder.png" // fallback image
-                      alt="No image available"
-                      width={200}
-                      height={200}
-                      className="h-min object-contain mx-auto"
-                  />
-                  )}
-      </Card>
+          {product?.images && product.images.length > 0 ? (
+            <Image
+              src={product.images[0] || "/placeholder.png"} // fallback if first image is undefined
+              alt={product.productName}
+              width={200}
+              height={200}
+              className="h-52 object-contain mx-auto"
+            />
+          ) : (
+            <Image
+              src="/placeholder.png" // fallback image
+              alt="No image available"
+              width={200}
+              height={200}
+              className="h-52 object-contain mx-auto"
+            />
+          )}
+        </Card>
 
       {/* Right: Product Info */}
       <div>
@@ -132,7 +132,7 @@ export default function ProductDetails({productId}:Props) {
                  </TabsList>
          
                  <TabsContent value={tab} className="w-full md:w-8/12 grid grid-cols-1 gap-6 py-10 bg-[#F4F6F6] p-8 rounded-2xl">
-                     {tab==="Description" ? <p className='text-lg '>{product.description}</p>:<>Products reviews</>}
+                     {tab==="Description" ? <p className='text-lg '>{product && product.description}</p>:<>Products reviews</>}
                  </TabsContent>
                </Tabs>
      </section>
@@ -141,7 +141,7 @@ export default function ProductDetails({productId}:Props) {
      <section className='max-w-6xl mx-auto pt-10 pb-20 md:pb-28 px-4 md:px-0'>
          <div className='mb-8 md:mb-14'><Heading title='Related products' subtitle='Our Products' desc=""/></div>
          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
-            {realtedProducts?.map(product=>(
+            {realtedProducts && realtedProducts?.map((product: IProduct) => (
                <ProductCard key={product.id} item={product}/>
             ))}
          </div>

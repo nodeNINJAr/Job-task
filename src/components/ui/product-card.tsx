@@ -15,22 +15,22 @@ export default function ProductCard({item}:{ item: IProduct }) {
        <Link href={`/shop/${item.id}`}>
            <Card key={item.id} className="flex flex-col items-center text-center shadow-lg !p-3 !rounded-[20px] gap-0 !text-lg">
                 <CardContent className="bg-[#F4F6F6] w-full rounded-2xl h-min">
-                  {item?.images?.length > 0 ? (
-                            <Image
-                                src={item.images[0]}
+                  {item?.images && item.images.length > 0 ? (
+                              <Image
+                                src={item.images[0] || "/placeholder.png"} 
                                 alt={item.productName}
                                 width={200}
                                 height={200}
                                 className="h-52 object-contain mx-auto"
-                            />
+                              />
                             ) : (
-                            <Image
+                              <Image
                                 src="/placeholder.png" // fallback image
                                 alt="No image available"
                                 width={200}
                                 height={200}
-                                className="h-min object-contain mx-auto"
-                            />
+                                className="h-52 object-contain mx-auto"
+                              />
                             )}
 
                 </CardContent>
