@@ -13,6 +13,9 @@ import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { useDispatch } from 'react-redux';
 import { closeModal, openRegister } from '@/redux/features/modal/modalSlice';
+import { useLoginMutation } from '@/redux/features/auth/auth.api';
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 
 
@@ -23,7 +26,7 @@ export function LoginModal({
 }: React.HTMLAttributes<HTMLDivElement>) {
 // 
 const dispatch = useDispatch();
-
+const router = useRouter();
 
 
   //
@@ -39,11 +42,19 @@ const dispatch = useDispatch();
 
 
 //   
+  const [login] = useLoginMutation();
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
+      const res = await login(data).unwrap();
+    //    console.log(res);
+      if (res.success) {
+        dispatch(closeModal())
+        toast.success("Logged in successfully");
+        router.push("/dashboard/profile");
+      }
     } catch (err) {
       console.error(err);
-
+       
     }
   };
 
