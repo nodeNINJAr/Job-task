@@ -22,7 +22,9 @@ const {data} = useGetAllProductsQuery(undefined)
   // 
 
 const filteredCategory =
-  tab === "all" ? null : category?.data.find((p) => p.categoryName === tab);
+  tab === "all"
+    ? null
+    : category?.data.find((p: { categoryName: string; id: string }) => p.categoryName === tab);
 
 const filteredProducts =
   tab === "all"

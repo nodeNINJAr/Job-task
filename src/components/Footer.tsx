@@ -25,7 +25,7 @@ export default function Footer() {
 
             <div>
                 <h3 className="mb-2 text-[12px] font-medium">Download App:</h3>
-              <div className=" flex justify-center gap-5 space-y-2 mt-6 md:mt-0">
+              <div className=" flex justify-center md:justify-start gap-5 space-y-2 mt-6 md:mt-0">
                  <Button variant="outline" className="justify-start bg-primary text-white size-max md:size-5/12">
                     <Apple className="size-8 mr-2 text-white" />
                     <div className="flex flex-col justify-start items-start gap-0"><p className="text-[12px]">Download on the</p> <h3 className="text-lg -m-1">App Store</h3> </div>
