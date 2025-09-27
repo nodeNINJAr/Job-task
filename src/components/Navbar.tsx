@@ -1,13 +1,10 @@
-'use client'; // Required for client-side interactivity (Sheet, etc.)
-
-import * as React from 'react';
+'use client';
 import Link from 'next/link';
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
-} from '@/components/ui/navigation-menu'; // Adjust path if needed
+} from '@/components/ui/navigation-menu'; 
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'; // For mobile drawer
 import { Button } from '@/components/ui/button';
 import {
@@ -20,8 +17,14 @@ import {
   Info,
   Newspaper,
 } from 'lucide-react'; // Lucide icons
+import { useDispatch,} from 'react-redux';
+import { openLogin } from '@/redux/features/modal/modalSlice';
+
+
 
 export default function Navbar() {
+  // 
+const disPatch = useDispatch();
 
 
 // 
@@ -96,10 +99,8 @@ export default function Navbar() {
           </Button>
 
           {/* Sign In */}
-          <Button variant="outline" size="sm" className="!font-rubik px-6 py-5 text-white hover:text-teal-600 bg-transparent rounded-sm text-sm font-semibold" asChild>
-            <Link href="/login">
+          <Button onClick={()=>disPatch(openLogin())} variant="outline" size="sm" className="!font-rubik px-6 py-5 text-white hover:text-teal-600 bg-transparent rounded-sm text-sm font-semibold">
                 Sign In
-            </Link>
           </Button>
         </div>
 
@@ -133,9 +134,10 @@ export default function Navbar() {
                 <Link href="/cart" className="flex items-center gap-2 text-gray-600 hover:text-teal-600 py-2">
                   <ShoppingBag className="h-5 w-5" /> Cart
                 </Link>
-                <Link href="/login" className="flex items-center gap-2 text-gray-600 hover:text-teal-600 py-2">
-                  <User className="h-5 w-5" /> Sign In
-                </Link>
+                  {/* Sign In */}
+                  <Button onClick={()=>disPatch(openLogin())} variant="outline" size="sm" className="!font-rubik px-6 py-5 text-white hover:text-teal-600 bg-transparent rounded-sm text-sm font-semibold">
+                      <User className="h-5 w-5" />   Sign In
+                  </Button>
               </div>
             </div>
           </SheetContent>

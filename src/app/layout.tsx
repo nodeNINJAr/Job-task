@@ -3,6 +3,8 @@ import { Questrial,Rubik } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import NavbarWrapper from "@/components/NavbarWrapper";
+import { Providers } from "@/providers/Providers";
+import ModalManager from "@/components/ModalManager";
 
 
 const questrial = Questrial({
@@ -32,12 +34,15 @@ export default function RootLayout({
       <body
         className={`${rubik.variable} antialiased`}
       >
-        {/* Navbar */}
-         <NavbarWrapper/>
-        {/* main */}
-          <main className="min-h-screen">{children}</main>
-        {/* footer */}
-        <Footer/>
+        <Providers>
+              <NavbarWrapper/>
+              {/*  */}
+               <ModalManager />
+              {/* main */}
+                <main className="min-h-screen">{children}</main>
+              {/* footer */}
+              <Footer/>
+        </Providers>
       </body>
     </html>
   );
