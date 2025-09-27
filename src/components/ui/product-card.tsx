@@ -9,7 +9,7 @@ import Link from 'next/link'
 
 
 // 
-export default function ProductCard({item}:{ item: IProduct }) {
+export default function ProductCard({item , height="h-32"}:{ item: IProduct,height:string}) {
     // 
   return (
        <Link href={`/shop/${item.id}`}>
@@ -21,7 +21,7 @@ export default function ProductCard({item}:{ item: IProduct }) {
                                 alt={item.productName}
                                 width={200}
                                 height={200}
-                                className="h-52 object-contain mx-auto"
+                                className={`object-contain mx-auto ${height}`}
                               />
                             ) : (
                               <Image

@@ -32,7 +32,7 @@ const featureProdcut= {
            </span>
            {/*  */}
             <div className='w-40 absolute -bottom-20 right-0'>
-                <ProductCard item={featureProdcut}/>
+                <ProductCard height="h-32" item={featureProdcut}/>
             </div>
         </div>
         {/* right side */}

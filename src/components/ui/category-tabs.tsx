@@ -43,12 +43,12 @@ const filteredProducts =
           <TabsTrigger className="data-[state=active]:bg-[#749B3F] data-[state=active]:text-white  !py-4 !px-6 text-lg border text-[#A6A6A6] border-[#A6A6A6]" value="Drinksss">Drinksss</TabsTrigger>
         </TabsList>
 
-        <TabsContent value={tab} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-20 md:py-10">
+        <TabsContent value={tab} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 !gap-3 md:gap-6 mt-32 md:mt-4 md:py-10">
         {
              filteredProducts?.length > 0 ? 
              <>
               {filteredProducts?.map((item:IProduct) => (
-              <ProductCard item={item} key={item?.id}/>
+              <ProductCard height="h-52" item={item} key={item?.id}/>
           ))}
           </> : <>
            <p className="text-center text-red-400">No data found</p>

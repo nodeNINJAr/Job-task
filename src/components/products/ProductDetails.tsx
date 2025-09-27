@@ -142,7 +142,7 @@ export default function ProductDetails({productId}:Props) {
          <div className='mb-8 md:mb-14'><Heading title='Related products' subtitle='Our Products' desc=""/></div>
          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
             {realtedProducts && realtedProducts?.map((product: IProduct) => (
-               <ProductCard key={product.id} item={product}/>
+               <ProductCard height="h-52" key={product.id} item={product}/>
             ))}
          </div>
      </section>
